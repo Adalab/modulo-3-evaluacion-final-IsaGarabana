@@ -1,10 +1,10 @@
 import Wizard from "./Wizard";
 
 function WizardList(props) {
-	const wizardElements = props.filteredWizards.map((eachWizard) => {
+	const wizardElements = props.filteredWizards.map((wizard) => {
 		return (
-			<li key={eachWizard.id}>
-				<Wizard wizards={eachWizard} />
+			<li key={wizard.id}>
+				<Wizard wizard={wizard} />
 			</li>
 		);
 	});
@@ -12,7 +12,7 @@ function WizardList(props) {
 		<section>
 			<ul>
 				{props.filteredWizards.length === 0
-					? "Hocus Pocus! No existen seres con ese nombre. Prueba con otro"
+					? "CONFUNDUS! No existen seres con ese nombre... Prueba con otro"
 					: wizardElements}
 			</ul>
 		</section>
