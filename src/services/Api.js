@@ -1,5 +1,5 @@
 const callToApi = () => {
-	return fetch("http://hp-api.herokuapp.com/api/characters/house/gryffindor") //Aquí parametrizar el
+	return fetch("http://hp-api.herokuapp.com/api/characters/house/gryffindor") //Parametrizar Fetch
 		.then((response) => response.json())
 		.then((data) => {
 			const shortData = data.map((wizard) => {
@@ -11,9 +11,10 @@ const callToApi = () => {
 					status: wizard.alive, //Booleano,
 					alternateNames: wizard.alternate_names,
 					gender: wizard.gender,
+					id: wizard.name + wizard.actor,
 				};
 			});
-			console.log(shortData);
+
 			return shortData;
 		});
 };

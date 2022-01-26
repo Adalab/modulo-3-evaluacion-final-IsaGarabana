@@ -1,10 +1,10 @@
 import "../styles/App.scss";
 import { useState, useEffect } from "react";
 import callToApi from "../services/Api";
-// import { Route, Link, Switch, useRouteMatch } from "react-router-dom";
+//import { Route, Link, Switch, useRouteMatch } from "react-router-dom";
 // import PropTypes from 'prop-types';
-import WizardList from "./WizardList";
-import Filters from "./Filters";
+import WizardList from "./Wizards/WizardList";
+import Forms from "./Forms/Forms";
 
 function App() {
 	const getTitle = (text) => <h1 className="title">{text}</h1>;
@@ -22,7 +22,7 @@ function App() {
 
 			<section>
 				<form>
-					<Filters />
+					<Forms />
 				</form>
 			</section>
 			<section>

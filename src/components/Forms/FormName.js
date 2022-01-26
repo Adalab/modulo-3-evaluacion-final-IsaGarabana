@@ -1,4 +1,4 @@
-function FilterName(props) {
+function FormName(props) {
 	const handleInput = () => {
 		console.log("hola");
 	};
@@ -11,4 +11,4 @@ function FilterName(props) {
 	);
 }
 
-export default FilterName;
+export default FormName;
