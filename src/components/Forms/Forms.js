@@ -3,10 +3,12 @@ import FormHouse from "./FormHouse";
 
 function Forms(props) {
 	return (
-		<>
-			<FormName />
-			<FormHouse />
-		</>
+		<section>
+			<form onSubmit={(ev) => ev.preventDefault()}>
+				<FormName handleForm={props.handleForm} formName={props.formName} />
+				<FormHouse handleForm={props.handleForm} formHouse={props.formHouse} />
+			</form>
+		</section>
 	);
 }
 

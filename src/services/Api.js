@@ -1,8 +1,10 @@
-const callToApi = () => {
-	return fetch("http://hp-api.herokuapp.com/api/characters/house/gryffindor") //Parametrizar Fetch
+import { v4 as uuidv4 } from "uuid";
+
+const hocusToApi = (formHouse) => {
+	return fetch(`http://hp-api.herokuapp.com/api/characters/house/${formHouse}`)
 		.then((response) => response.json())
 		.then((data) => {
-			const shortData = data.map((wizard) => {
+			const wizardsData = data.map((wizard) => {
 				return {
 					name: wizard.name,
 					species: wizard.species,
@@ -11,12 +13,11 @@ const callToApi = () => {
 					status: wizard.alive, //Booleano,
 					alternateNames: wizard.alternate_names,
 					gender: wizard.gender,
-					id: wizard.name + wizard.actor,
+					id: uuidv4(),
 				};
 			});
-
-			return shortData;
+			return wizardsData;
 		});
 };
 
-export default callToApi;
+export default hocusToApi;
