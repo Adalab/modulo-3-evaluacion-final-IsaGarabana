@@ -4,7 +4,7 @@ function WizardList(props) {
 	const wizardElements = props.filteredWizards.map((wizard) => {
 		return (
 			<li key={wizard.id}>
-				<Wizard wizard={wizard} />
+				<Wizard getSpecies={props.getSpecies} wizard={wizard} />
 			</li>
 		);
 	});

@@ -10,8 +10,8 @@ const hocusToApi = (formHouse) => {
 					species: wizard.species,
 					house: wizard.house,
 					image: wizard.image,
-					status: wizard.alive, //Booleano,
-					alternateNames: wizard.alternate_names,
+					alive: wizard.alive,
+					alternate_names: wizard.alternate_names,
 					gender: wizard.gender,
 					id: uuidv4(),
 				};

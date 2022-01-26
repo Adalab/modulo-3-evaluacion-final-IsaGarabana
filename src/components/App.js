@@ -2,7 +2,7 @@ import "../styles/App.scss";
 import { useState, useEffect } from "react";
 import hocusToApi from "../services/Api";
 import { Route, Switch } from "react-router-dom";
-// import PropTypes from 'prop-types';
+import Header from "./Header";
 import WizardList from "./Wizards/WizardList";
 import Forms from "./Forms/Forms";
 import WizardDetail from "./Wizards/WizardDetail";
@@ -27,12 +27,13 @@ function App() {
 	};
 
 	//Filtros en base al formulario
-	const filteredWizards = wizards.filter((wizard) => {
-		return wizard.name.toLowerCase().includes(formName.toLowerCase());
-	});
+	const filteredWizards = wizards
+		.filter((wizard) => {
+			return wizard.name.toLowerCase().includes(formName.toLowerCase());
+		})
+		.sort((a, b) => a.name.localeCompare(b.name));
 
-	//Traer la traducción de datos del API (para Wizard y WizardDetail, la pasamos por props)
-
+	//Pintar El detalle de tarjeta en una ruta distinta
 	const renderWizardDetail = (props) => {
 		const routeId = props.match.params.wizardId;
 		const foundWizard = wizards.find((wizard) => wizard.id === routeId);
@@ -41,7 +42,7 @@ function App() {
 
 	return (
 		<>
-			<header className="title">{getTitle("Harry Potter")}</header>
+			<Header getTitle={getTitle} />
 			<Switch>
 				<Route path="/" exact>
 					<Forms handleForm={handleForm} formName={formName} formHouse={formHouse} />

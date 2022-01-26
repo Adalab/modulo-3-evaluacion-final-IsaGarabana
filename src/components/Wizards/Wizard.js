@@ -1,16 +1,6 @@
 import { Link } from "react-router-dom";
+import TranslateSpecies from "../../services/TranslateSpecies";
 function Wizard(props) {
-	const getSpecies = () => {
-		if (props.wizard.species === "human") {
-			return props.wizard.gender === "male" ? "Humano" : "Humana";
-		} else if (props.wizard.species === "half-giant") {
-			return "Medio-gigante";
-		} else if (props.wizard.species === "werewolf") {
-			return "Hombre-Lobo";
-		} else if (props.wizard.species === "ghost") {
-			return "Fantasma";
-		}
-	};
 	return (
 		<Link to={`/wizard/${props.wizard.id}`}>
 			<img
@@ -23,8 +13,8 @@ function Wizard(props) {
 				alt={props.wizard.name}
 				title={props.wizard.name}
 			/>
-			<h3>Nombre: {props.wizard.name}</h3>
-			<p>Especie :{getSpecies()}</p>
+			<h3>{props.wizard.name}</h3>
+			<p>{TranslateSpecies(props.wizard.species, props.wizard.gender)}</p>
 		</Link>
 	);
 }
