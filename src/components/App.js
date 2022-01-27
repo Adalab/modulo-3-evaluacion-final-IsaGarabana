@@ -41,6 +41,13 @@ function App() {
 		)
 		.sort((a, b) => a.name.localeCompare(b.name));
 
+	//Botón de reset
+	const handleReset = () => {
+		setFormName("");
+		setFormHouse("gryffindor");
+		setFormGender("all");
+	};
+
 	//Pintar El detalle de tarjeta en una ruta distinta
 	const renderWizardDetail = (props) => {
 		const routeId = props.match.params.wizardId;
@@ -58,6 +65,7 @@ function App() {
 						formName={formName}
 						formHouse={formHouse}
 						formGender={formGender}
+						handleReset={handleReset}
 					/>
 					<WizardList filteredWizards={filteredWizards} />
 				</Route>

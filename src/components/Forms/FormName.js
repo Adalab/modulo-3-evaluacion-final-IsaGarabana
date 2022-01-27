@@ -12,7 +12,7 @@ function FormName(props) {
 				type="text"
 				name="name"
 				id="name"
-				value={props.FormName}
+				value={props.formName}
 				onChange={handleName}
 			/>
 		</label>
