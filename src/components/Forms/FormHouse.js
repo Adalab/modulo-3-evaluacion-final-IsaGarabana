@@ -6,7 +6,7 @@ function FormHouse(props) {
 		});
 	};
 	return (
-		<div className="form">
+		<>
 			<label className="form__item" htmlFor="house">
 				Selecciona una casa:
 				<select name="house" id="house" value={props.formHouse} onChange={handleHouse}>
@@ -16,7 +16,7 @@ function FormHouse(props) {
 					<option value="slytherin">Slytherin</option>
 				</select>
 			</label>
-		</div>
+		</>
 	);
 }
 

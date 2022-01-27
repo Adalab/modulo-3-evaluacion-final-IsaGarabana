@@ -1,24 +1,32 @@
 // Mis estilos
 @import "core/reset";
 
-.title {
-	font-size: 80px;
-	letter-spacing: 5pt;
-	text-align: center;
-	color: #ebca13;
+.header {
 	background-color: #5f0a86;
-}
+	position: sticky;
+	width: 100%;
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 6rem;
+	&__title {
+		font-size: 80px;
+		letter-spacing: 5pt;
+		color: #ebca13;
+	}
+}
 .wizardList {
 	margin-top: 20px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: flex-start;
+	gap: 15px;
 	&__item {
 		&--image {
-			height: 300px;
+			height: 270px;
 			width: 200px;
-			border: 3px solid orange;
+			border: 3px solid #ffa500;
 		}
 	}
 }
@@ -30,4 +38,36 @@
 		display: block;
 		margin: 10px 20px;
 	}
+}
+
+.button {
+	border: 3px solid #5f0a86;
+	border-radius: 10px;
+	background-color: #ebca13;
+	color: #5f0a86;
+}
+
+.error {
+	display: flex column center center;
+	&__container {
+		font-size: 50px;
+		object-position: 50% 50%;
+		text-align: center;
+	}
+}
+
+.images {
+	height: 270px;
+	width: 200px;
+	border: 3px solid orange;
+}
+
+.houseImage {
+	height: 30px;
+}
+
+.WizardCard {
+	height: 350px;
+	display: flex;
+	align-items: center;
 }

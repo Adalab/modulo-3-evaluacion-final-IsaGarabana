@@ -3,7 +3,11 @@ function Reset(props) {
 		props.handleReset();
 	};
 
-	return <button onClick={handleClick}>Limpia la búsqueda</button>;
+	return (
+		<button className="form__item button" onClick={handleClick}>
+			Limpia tu búsqueda
+		</button>
+	);
 }
 
 export default Reset;

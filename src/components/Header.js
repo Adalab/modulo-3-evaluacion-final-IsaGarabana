@@ -1,5 +1,9 @@
-function Header(props) {
-	return <header className="title">{props.getTitle("Harry Potter")}</header>;
+function Header() {
+	return (
+		<header className="header">
+			<h1 className="header__title"> Harry Potter</h1>
+		</header>
+	);
 }
 
 export default Header;

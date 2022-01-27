@@ -12,6 +12,7 @@ function FormName(props) {
 				type="text"
 				name="name"
 				id="name"
+				placeholder="ej:Hagrid"
 				value={props.formName}
 				onChange={handleName}
 			/>

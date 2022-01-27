@@ -8,8 +8,6 @@ import Forms from "./Forms/Forms";
 import WizardDetail from "./Wizards/WizardDetail";
 
 function App() {
-	const getTitle = (text) => <h1 className="title">{text}</h1>;
-
 	const [wizards, setWizards] = useState([]);
 	const [formName, setFormName] = useState("");
 	const [formHouse, setFormHouse] = useState("gryffindor");
@@ -57,7 +55,7 @@ function App() {
 
 	return (
 		<>
-			<Header getTitle={getTitle} />
+			<Header />
 			<Switch>
 				<Route path="/" exact>
 					<Forms

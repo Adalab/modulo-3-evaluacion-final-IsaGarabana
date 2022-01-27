@@ -1,10 +1,8 @@
-import { v4 as uuidv4 } from "uuid";
-
 const hocusToApi = (formHouse) => {
 	return fetch(`http://hp-api.herokuapp.com/api/characters/house/${formHouse}`)
 		.then((response) => response.json())
 		.then((data) => {
-			const wizardsData = data.map((wizard) => {
+			const wizardsData = data.map((wizard, index) => {
 				return {
 					name: wizard.name,
 					species: wizard.species,
@@ -13,7 +11,7 @@ const hocusToApi = (formHouse) => {
 					alive: wizard.alive,
 					alternate_names: wizard.alternate_names,
 					gender: wizard.gender,
-					id: uuidv4(),
+					id: wizard.name.replace(" ", "-") + "-" + index,
 				};
 			});
 			return wizardsData;
