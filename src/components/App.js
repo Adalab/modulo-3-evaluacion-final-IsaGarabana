@@ -13,6 +13,9 @@ function App() {
 	const [wizards, setWizards] = useState([]);
 	const [formName, setFormName] = useState("");
 	const [formHouse, setFormHouse] = useState("gryffindor");
+	const [formGender, setFormGender] = useState("all");
+
+	//API
 	useEffect(() => {
 		hocusToApi(formHouse).then((apiData) => {
 			setWizards(apiData);
@@ -21,16 +24,21 @@ function App() {
 
 	//Función manejadora de formulario
 	const handleForm = (wizardsData) => {
-		wizardsData.key === "name"
-			? setFormName(wizardsData.value)
-			: setFormHouse(wizardsData.value);
+		if (wizardsData.key === "name") {
+			setFormName(wizardsData.value);
+		} else if (wizardsData.key === "house") {
+			setFormHouse(wizardsData.value);
+		} else if (wizardsData.key === "gender") {
+			setFormGender(wizardsData.value);
+		}
 	};
 
 	//Filtros en base al formulario
 	const filteredWizards = wizards
-		.filter((wizard) => {
-			return wizard.name.toLowerCase().includes(formName.toLowerCase());
-		})
+		.filter((wizard) => wizard.name.toLowerCase().includes(formName.toLowerCase()))
+		.filter((wizard) =>
+			formGender === "all" ? true : wizard.gender === formGender
+		)
 		.sort((a, b) => a.name.localeCompare(b.name));
 
 	//Pintar El detalle de tarjeta en una ruta distinta
@@ -45,7 +53,12 @@ function App() {
 			<Header getTitle={getTitle} />
 			<Switch>
 				<Route path="/" exact>
-					<Forms handleForm={handleForm} formName={formName} formHouse={formHouse} />
+					<Forms
+						handleForm={handleForm}
+						formName={formName}
+						formHouse={formHouse}
+						formGender={formGender}
+					/>
 					<WizardList filteredWizards={filteredWizards} />
 				</Route>
 				<Route path="/wizard/:wizardId" exact render={renderWizardDetail} />

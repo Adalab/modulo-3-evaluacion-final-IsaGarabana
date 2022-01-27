@@ -6,7 +6,7 @@ function FormName(props) {
 		});
 	};
 	return (
-		<label htmlFor="name">
+		<label className="form__item" htmlFor="name">
 			Busca por personaje:
 			<input
 				type="text"
