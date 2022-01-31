@@ -12,6 +12,7 @@ function App() {
 	const [formName, setFormName] = useState("");
 	const [formHouse, setFormHouse] = useState("gryffindor");
 	const [formGender, setFormGender] = useState("all");
+	const [formActor, setFormActor] = useState("");
 
 	//API
 	useEffect(() => {
@@ -28,6 +29,8 @@ function App() {
 			setFormHouse(wizardsData.value);
 		} else if (wizardsData.key === "gender") {
 			setFormGender(wizardsData.value);
+		} else if (wizardsData.key === "actor") {
+			setFormActor(wizardsData.value);
 		}
 	};
 
@@ -37,6 +40,9 @@ function App() {
 		.filter((wizard) =>
 			formGender === "all" ? true : wizard.gender === formGender
 		)
+		.filter((wizard) =>
+			wizard.actor.toLowerCase().includes(formActor.toLowerCase())
+		)
 		.sort((a, b) => a.name.localeCompare(b.name));
 
 	//Botón de reset
@@ -44,6 +50,7 @@ function App() {
 		setFormName("");
 		setFormHouse("gryffindor");
 		setFormGender("all");
+		setFormActor("");
 	};
 
 	//Pintar El detalle de tarjeta en una ruta distinta
@@ -64,6 +71,7 @@ function App() {
 						formHouse={formHouse}
 						formGender={formGender}
 						handleReset={handleReset}
+						formActor={formActor}
 					/>
 					<WizardList filteredWizards={filteredWizards} />
 				</Route>

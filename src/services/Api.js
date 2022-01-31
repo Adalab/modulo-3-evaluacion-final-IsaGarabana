@@ -12,6 +12,7 @@ const hocusToApi = (formHouse) => {
 					alternate_names: wizard.alternate_names,
 					gender: wizard.gender,
 					id: wizard.name.replace(" ", "-") + "-" + index,
+					actor: wizard.actor,
 				};
 			});
 			return wizardsData;
