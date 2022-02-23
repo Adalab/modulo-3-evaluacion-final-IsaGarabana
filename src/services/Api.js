@@ -1,5 +1,5 @@
 const hocusToApi = (formHouse) => {
-	return fetch(`http://hp-api.herokuapp.com/api/characters/house/${formHouse}`)
+	return fetch(`https://hp-api.herokuapp.com/api/characters/house/${formHouse}`)
 		.then((response) => response.json())
 		.then((data) => {
 			const wizardsData = data.map((wizard, index) => {
